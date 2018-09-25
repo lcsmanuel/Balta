@@ -1,9 +1,7 @@
-using System;
 using System.Linq;
+using LS.Shared.Entities;
 using System.Collections.Generic;
 using LS.Domain.StoreContext.ValueObjects;
-using FluentValidator;
-using LS.Shared.Entities;
 
 namespace LS.Domain.StoreContext.Entities
 {

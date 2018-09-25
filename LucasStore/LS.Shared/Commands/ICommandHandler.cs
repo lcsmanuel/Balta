@@ -1,4 +1,4 @@
-namespace LS.Shared.Commands
+﻿namespace LS.Shared.Commands
 {
     public interface ICommandHandler<T> where T : ICommand
     {

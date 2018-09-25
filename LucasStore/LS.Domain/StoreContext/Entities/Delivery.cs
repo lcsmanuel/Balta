@@ -1,7 +1,6 @@
 using System;
-using FluentValidator;
-using LS.Domain.StoreContext.Enums;
 using LS.Shared.Entities;
+using LS.Domain.StoreContext.Enums;
 
 namespace LS.Domain.StoreContext.Entities
 {

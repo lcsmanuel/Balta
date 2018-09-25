@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
 using FluentValidator;
-using FluentValidator.Validation;
 using LS.Shared.Commands;
+using System.Collections.Generic;
+using FluentValidator.Validation;
 
 namespace LS.Domain.StoreContext.Commands.OrderCommands.Inputs
 {

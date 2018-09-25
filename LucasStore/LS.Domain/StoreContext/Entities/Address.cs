@@ -1,5 +1,5 @@
-using LS.Domain.StoreContext.ValueObjects;
 using LS.Shared.Entities;
+using LS.Domain.StoreContext.ValueObjects;
 
 namespace LS.Domain.StoreContext.Entities
 {

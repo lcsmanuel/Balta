@@ -1,6 +1,3 @@
-using System;
-using FluentValidator;
-using System.Collections.Generic;
 using LS.Shared.Entities;
 
 namespace LS.Domain.StoreContext.Entities

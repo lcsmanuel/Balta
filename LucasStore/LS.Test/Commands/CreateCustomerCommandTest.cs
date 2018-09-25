@@ -9,12 +9,14 @@ namespace LS.Test.Commands
         [TestMethod]
         public void ShouldValidateWhenCommandIsValid()
         {
-            var command = new CreateCustomerCommand();
-            command.FirstName = "Lucas";
-            command.LastName = "Ferreira";
-            command.Document = "35823954808";
-            command.Email = "lcsmanuel@gmail.com";
-            command.Phone = "11992361748";
+            var command = new CreateCustomerCommand
+            {
+                FirstName = "Lucas",
+                LastName = "Ferreira",
+                Document = "35823954808",
+                Email = "lcsmanuel@gmail.com",
+                Phone = "11992361748"
+            };
 
             Assert.AreEqual(true, command.Valid());
         }

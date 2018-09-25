@@ -1,7 +1,6 @@
 using System;
 using FluentValidator;
 using LS.Shared.Commands;
-using FluentValidator.Validation;
 using LS.Domain.StoreContext.ValueObjects;
 
 namespace LS.Domain.StoreContext.Commands.CustomerCommands.Inputs
@@ -21,7 +20,7 @@ namespace LS.Domain.StoreContext.Commands.CustomerCommands.Inputs
 
         public bool Valid()
         {
-            return base.IsValid;
+            return IsValid;
         }
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentValidator;
 
 namespace LS.Shared.Entities

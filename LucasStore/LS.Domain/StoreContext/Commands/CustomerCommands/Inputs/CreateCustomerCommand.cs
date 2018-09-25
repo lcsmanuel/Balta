@@ -1,6 +1,6 @@
 using FluentValidator;
-using FluentValidator.Validation;
 using LS.Shared.Commands;
+using FluentValidator.Validation;
 
 namespace LS.Domain.StoreContext.Commands.CustomerCommands.Inputs
 {
@@ -23,7 +23,7 @@ namespace LS.Domain.StoreContext.Commands.CustomerCommands.Inputs
                 .IsEmail(Email, "Email", "O E-mal é inválido")
                 .HasLen(Document, 11, "Document", "CPF inválido")
             );
-            return base.IsValid;
+            return IsValid;
         }
     }
 }
