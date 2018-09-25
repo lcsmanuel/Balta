@@ -31,7 +31,7 @@ namespace LS.Test.Entities
         [TestMethod]
         public void ShouldCreateOrderWheValid()
         {
-            Assert.AreEqual(true, _order.Valid);
+            Assert.AreEqual(true, _order.IsValid);
         }
 
         [TestMethod]

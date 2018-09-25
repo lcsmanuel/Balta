@@ -10,7 +10,7 @@ namespace LS.Test
         public void ShouldReturnNotNotificationWhenNameIsValid()
         {
             var name = new Name("", "Ferreira");
-            Assert.AreEqual(false, name.Valid);
+            Assert.AreEqual(false, name.IsValid);
             Assert.AreEqual(1, name.Notifications.Count);
         }
     }

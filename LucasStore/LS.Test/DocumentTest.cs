@@ -18,14 +18,14 @@ namespace LS.Test
         [TestMethod]
         public void ShouldReturnNotNotificationWhenDocumentIsValid()
         {
-            Assert.AreEqual(true, vDoc.Valid);
+            Assert.AreEqual(true, vDoc.IsValid);
             Assert.AreEqual(0, vDoc.Notifications.Count);
         }
 
         [TestMethod]
         public void ShouldReturnNotificationWhenDocumentIsInvalid()
         {
-            Assert.AreEqual(false, iDoc.Valid);
+            Assert.AreEqual(false, iDoc.IsValid);
             Assert.AreEqual(1, iDoc.Notifications.Count);
         }
     }
