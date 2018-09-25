@@ -50,6 +50,32 @@ namespace LS.Domain.StoreContext.Handlers
             return new CreateCustomerCommandResult(Guid.NewGuid(), name.ToString(), email.Address);
         }
 
+        public ICommandResult Handle(UpdateCustomerCommand command)
+        {
+            if (_repository.CheckDocument(command.Document))
+                AddNotification("Document", "Este CPF já está em uso.");
+
+            if (_repository.CheckEmail(command.Email))
+                AddNotification("Email", "Este Email já está em uso.");
+
+            var name = new Name(command.FirstName, command.LastName);
+            var document = new Document(command.Document);
+            var email = new Email(command.Email);
+            var customer = new Customer(name, document, email, command.Phone);
+
+            AddNotifications(name.Notifications);
+            AddNotifications(document.Notifications);
+            AddNotifications(email.Notifications);
+            AddNotifications(customer.Notifications);
+
+            if(Invalid)
+                return null;
+            
+            _repository.Update(customer);
+
+            return new CreateCustomerCommandResult(Guid.NewGuid(), name.ToString(), email.Address);
+        }
+
         public ICommandResult Handle(AddAddressCommand command)
         {
             throw new System.NotImplementedException();
