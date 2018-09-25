@@ -3,10 +3,11 @@ using System.Linq;
 using FluentValidator;
 using System.Collections.Generic;
 using LS.Domain.StoreContext.Enums;
+using LS.Shared.Entities;
 
 namespace LS.Domain.StoreContext.Entities
 {
-    public class Order: Notifiable
+    public class Order : Entity
     {
         private readonly IList<OrderItem> _items;
         private readonly IList<Delivery> _deliveries;

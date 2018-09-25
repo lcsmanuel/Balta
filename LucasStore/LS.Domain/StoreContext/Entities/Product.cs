@@ -1,9 +1,10 @@
 using System;
 using FluentValidator;
+using LS.Shared.Entities;
 
 namespace LS.Domain.StoreContext.Entities
 {
-    public class Product: Notifiable
+    public class Product : Entity
     {
         public Product(string title, string description, string image, decimal price, decimal quantityOnHand)
         {

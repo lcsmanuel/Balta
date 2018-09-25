@@ -3,10 +3,11 @@ using System.Linq;
 using System.Collections.Generic;
 using LS.Domain.StoreContext.ValueObjects;
 using FluentValidator;
+using LS.Shared.Entities;
 
 namespace LS.Domain.StoreContext.Entities
 {
-    public class Customer: Notifiable
+    public class Customer : Entity
     {
         private readonly IList<Address> _addresses;
 

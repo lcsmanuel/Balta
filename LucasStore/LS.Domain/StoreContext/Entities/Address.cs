@@ -1,8 +1,9 @@
 using LS.Domain.StoreContext.ValueObjects;
+using LS.Shared.Entities;
 
 namespace LS.Domain.StoreContext.Entities
 {
-    public class Address
+    public class Address : Entity
     {
         public Address(string street, string number, string complement, string district, string city, string state, string country, string zipCode, EAddressType type)
         {
