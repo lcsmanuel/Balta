@@ -1,12 +1,12 @@
 using System;
 using FluentValidator;
 using LS.Shared.Commands;
+using LS.Domain.StoreContext.Entities;
+using LS.Domain.StoreContext.Services;
+using LS.Domain.StoreContext.Repositories;
+using LS.Domain.StoreContext.ValueObjects;
 using LS.Domain.StoreContext.Commands.CustomerCommands.Inputs;
 using LS.Domain.StoreContext.Commands.CustomerCommands.Outputs;
-using LS.Domain.StoreContext.ValueObjects;
-using LS.Domain.StoreContext.Entities;
-using LS.Domain.StoreContext.Repositories;
-using LS.Domain.StoreContext.Services;
 
 namespace LS.Domain.StoreContext.Handlers
 {
