@@ -1,9 +1,8 @@
 ﻿using Dapper;
-using System.Data;
 using System.Linq;
-using System.Data.SqlClient;
 using LS.Domain.StoreContext.Entities;
 using LS.Domain.StoreContext.Repositories;
+using LS.Domain.StoreContext.Queries;
 
 namespace LS.Infra.StoreContext.Repositories
 {
@@ -44,6 +43,12 @@ namespace LS.Infra.StoreContext.Repositories
                 sql = $"INSERT INTO [Address] ([Id], [CustomerId], [Number], [Complement], [District], [City], [State], [Country], [ZipCode], [Type]) VALUES ({adr.Id}, {customer.Id}, {adr.Number}, {adr.Complement}, {adr.District}, {adr.City}, {adr.State}, {adr.Country}, {adr.ZipCode}, {adr.Type})";
                 _context.Connection.Execute(sql);
             }
+        }
+
+        public CustomerOrdersCountResult GetCustomerOrdersCount(string document)
+        {
+            sql = $"SELECT c.[Id], c.[FirstName] + ' ' + c.[LastName] AS [Name], c.[Document], COUNT(c.[Id]) AS [Orders] FROM [Customer] c INNER JOIN [Order] o ON o.[CustomerId] = c.[Id] WHERE c.[Document] = '{document}' GROUP BY c.[Id], c.[FirstName], c.[LastName], c.[Document];";
+            return _context.Connection.Query<CustomerOrdersCountResult>(sql).FirstOrDefault();
         }
     }
 }

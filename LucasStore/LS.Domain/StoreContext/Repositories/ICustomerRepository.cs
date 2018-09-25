@@ -1,4 +1,5 @@
 using LS.Domain.StoreContext.Entities;
+using LS.Domain.StoreContext.Queries;
 
 namespace LS.Domain.StoreContext.Repositories
 {
@@ -9,5 +10,7 @@ namespace LS.Domain.StoreContext.Repositories
         bool CheckEmail(string email);
 
         void Save(Customer customer);
+
+        CustomerOrdersCountResult GetCustomerOrdersCount(string document);
     }
 }
