@@ -8,6 +8,7 @@ using LS.Domain.StoreContext.ValueObjects;
 using LS.Domain.StoreContext.Repositories;
 using LS.Domain.StoreContext.Commands.CustomerCommands.Inputs;
 using LS.Domain.StoreContext.Commands.CustomerCommands.Outputs;
+using LS.Shared.Commands;
 
 namespace LS.Api.Controllers
 {
@@ -53,25 +54,17 @@ namespace LS.Api.Controllers
 
         [HttpPost]
         [Route("v1/customers")]
-        public object Post([FromBody]CreateCustomerCommand command)
+        public ICommandResult Post([FromBody]CreateCustomerCommand command)
         {
             var result = (CreateCustomerCommandResult)_handler.Handle(command);
-
-            if(_handler.Invalid)
-                return BadRequest(_handler.Notifications);
-
             return result;
         }
 
         [HttpPut]
         [Route("v1/customers/{id}")]
-        public object Put([FromBody]UpdateCustomerCommand command)
+        public ICommandResult Put([FromBody]UpdateCustomerCommand command)
         {
-            var result = (UpdateCustomerCommand)_handler.Handle(command);
-
-            if(_handler.Invalid)
-                return BadRequest(_handler.Notifications);
-
+            var result = (UpdateCustomerCommandResult)_handler.Handle(command);
             return result;
         }
 

@@ -1,13 +1,12 @@
-using System;
 using LS.Shared.Commands;
 
 namespace LS.Domain.StoreContext.Commands.CustomerCommands.Outputs
 {
-    public class CreateCustomerCommandResult : ICommandResult
+    public class UpdateCustomerCommandResult : ICommandResult
     {
-        public CreateCustomerCommandResult() { }
+        public UpdateCustomerCommandResult() { }
 
-        public CreateCustomerCommandResult(bool success, string message, object data)
+        public UpdateCustomerCommandResult(bool success, string message, object data)
         {
             Success = success;
             Message = message;

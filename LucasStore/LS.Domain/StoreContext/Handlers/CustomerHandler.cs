@@ -41,13 +41,17 @@ namespace LS.Domain.StoreContext.Handlers
             AddNotifications(customer.Notifications);
 
             if(Invalid)
-                return null;
+                return new CommandResult(false, "Por favor corrija os campos abaixo", Notifications);
             
             _repository.Save(customer);
 
             _emailService.Send(email.Address, "hello@ls.store", "Bem vindo", "Seja bem vindo a LS Store");
 
-            return new CreateCustomerCommandResult(Guid.NewGuid(), name.ToString(), email.Address);
+            return new CommandResult(true, "Bem vindo a a LS Store", new {
+                Id = customer.Id,
+                Name = name.ToString(),
+                Email = email
+            });
         }
 
         public ICommandResult Handle(UpdateCustomerCommand command)
@@ -69,11 +73,15 @@ namespace LS.Domain.StoreContext.Handlers
             AddNotifications(customer.Notifications);
 
             if(Invalid)
-                return null;
+                return new CommandResult(false, "Por favor corrija os campos abaixo", Notifications);
             
             _repository.Update(customer);
 
-            return new CreateCustomerCommandResult(Guid.NewGuid(), name.ToString(), email.Address);
+            return new CommandResult(true, "Customer alterado", new {
+                Id = customer.Id,
+                Name = name.ToString(),
+                Email = email
+            });
         }
 
         public ICommandResult Handle(AddAddressCommand command)
