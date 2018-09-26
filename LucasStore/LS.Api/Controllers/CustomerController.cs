@@ -23,28 +23,36 @@ namespace LS.Api.Controllers
         }
         
         [HttpGet]
-        [Route("customers")]
+        [Route("v1/customers")]
+        [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 60)]
         public IEnumerable<ListCostumerQueryResult> Get()
         {
             return _repository.Get();
         }
 
         [HttpGet]
-        [Route("customers/{id}")]
+        [Route("v1/customers/{id}")]
         public CostumerQueryResult GetById(Guid id)
         {
             return _repository.GetCostumer(id);
         }
 
         [HttpGet]
-        [Route("customers/{id}/orders")]
+        [Route("v2/customers/{document}")]
+        public CostumerQueryResult GetByDocument(Guid id)
+        {
+            return _repository.GetCostumer(id);
+        }
+
+        [HttpGet]
+        [Route("v1/customers/{id}/orders")]
         public IEnumerable<ListOrdersQueryResult> GetOrdersById(Guid id)
         {
             return _repository.GetOrders(id);
         }
 
         [HttpPost]
-        [Route("customers")]
+        [Route("v1/customers")]
         public object Post([FromBody]CreateCustomerCommand command)
         {
             var result = (CreateCustomerCommandResult)_handler.Handle(command);
@@ -56,7 +64,7 @@ namespace LS.Api.Controllers
         }
 
         [HttpPut]
-        [Route("customers/{id}")]
+        [Route("v1/customers/{id}")]
         public object Put([FromBody]UpdateCustomerCommand command)
         {
             var result = (UpdateCustomerCommand)_handler.Handle(command);
@@ -68,7 +76,7 @@ namespace LS.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("customers/{id}")]
+        [Route("v1/customers/{id}")]
         public object Delete(Guid Id)
         {
             _repository.Delete(Id);

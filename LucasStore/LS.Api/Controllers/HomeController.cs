@@ -13,5 +13,13 @@ namespace LS.Api.Controllers
         {
             return new { version = "Hello World" };
         }
+
+        [HttpGet]
+        [Route("error")]
+        public object Error()
+        {
+            throw new System.Exception("Algum erro ocorreu"); 
+            return "erro";
+        }
     }
 }
