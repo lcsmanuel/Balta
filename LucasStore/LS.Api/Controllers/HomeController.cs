@@ -19,6 +19,9 @@ namespace LS.Api.Controllers
         public object Error()
         {
             throw new System.Exception("Algum erro ocorreu"); 
+
+            //TESTE
+
             return "erro";
         }
     }
